@@ -86,6 +86,15 @@ public class EncodingHelperCharTest {
     }
 
     @Test
+    public void testToCodePointStringHigherCodepoints() throws Exception {
+        String expected = "U+10000";
+        EncodingHelperChar demonstrator = new EncodingHelperChar(65536);
+        String actual = demonstrator.toCodePointString();
+        assertEquals("toCodePointString() did not return the expected value " +
+                "for codepoint U+10000" , expected, actual);
+    }
+
+    @Test
     public void testToUtf8String() throws Exception {
         String expected = "\\xC3\\xA9";
         EncodingHelperChar demonstrator = new EncodingHelperChar('é');
