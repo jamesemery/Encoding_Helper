@@ -1,9 +1,15 @@
 /**
+ *
+ *
+ *
+ *
  * The main model class for the EncodingHelper project in
  * CS 257, Spring 2015, Carleton College. Each object of this class
  * represents a single Unicode character. The class's methods
  * generate various representations of the character. 
  */
+package edu.carleton.emeryj;
+
 public class EncodingHelperChar {
     private int codePoint;
 

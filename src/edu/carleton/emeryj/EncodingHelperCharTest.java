@@ -11,7 +11,7 @@ public class EncodingHelperCharTest {
 
     @Test
     public void testEncodingHelperCharConstructorByteArray() throws Exception {
-        EncodingHelperChar expected = new EncodingHelperChar();
+        EncodingHelperChar expected = new EncodingHelperChar(65);
         expected.setCodePoint(65);
         byte[] test = "A".getBytes("UTF-8");
         EncodingHelperChar actual = new EncodingHelperChar(test);
@@ -22,7 +22,7 @@ public class EncodingHelperCharTest {
 
     @Test
     public void testEncodingHelperCharCharConstructor() throws Exception {
-        EncodingHelperChar expected = new EncodingHelperChar();
+        EncodingHelperChar expected = new EncodingHelperChar(65);
         expected.setCodePoint(65);
         char test = 'A';
         EncodingHelperChar actual = new EncodingHelperChar(test);
@@ -33,7 +33,7 @@ public class EncodingHelperCharTest {
 
     @Test
     public void testEncodingHelperCharIntConstructor() throws Exception {
-        EncodingHelperChar expected = new EncodingHelperChar();
+        EncodingHelperChar expected = new EncodingHelperChar(65);
         expected.setCodePoint(65);
         EncodingHelperChar actual = new EncodingHelperChar(65);
         assertEquals("The int constructor input does not match object",
