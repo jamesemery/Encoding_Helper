@@ -23,7 +23,7 @@ public class EncodingHelperCharTest {
     public void testEncodingHelperCharByteArrayConstrucyorHighValue() throws
             Exception {
         EncodingHelperChar expected = new EncodingHelperChar(65536);
-        byte[] test = new byte[(byte)0xF0908080];
+        byte[] test = new byte[0xF0908080];
         EncodingHelperChar actual = new EncodingHelperChar(test);
         assertEquals("The UTF8 ByteArray constructor input does not match " +
                 "object", expected.getCodePoint(), actual.getCodePoint());
@@ -69,21 +69,24 @@ public class EncodingHelperCharTest {
 
     @Test
     public void testToUtf8Bytes() throws Exception {
-        byte[] expected = "A".getBytes("UTF-8");
-        EncodingHelperChar demonstrator = new EncodingHelperChar(expected);
+        byte[] expected = new byte[1];
+        expected[0] = 0x41;
+        EncodingHelperChar demonstrator = new EncodingHelperChar('A');
         byte[] actual = demonstrator.toUtf8Bytes();
-        assertEquals("toUtf8Bytes() did not return the expected value" ,
-                Arrays.toString(expected), Arrays.toString(actual));
+        assertArrayEquals("toUtf8Bytes() did not return the expected value",
+                expected, actual);
     }
 
     @Test
     public void testToUtf8BytesHighValue() throws Exception {
-        byte[] expected = "က".getBytes("UTF-8");
-        EncodingHelperChar demonstrator = new EncodingHelperChar(expected);
+        byte[] expected = new byte[3];
+        expected[0] = (byte)0xE1;
+        expected[1] = (byte)0x80;
+        expected[2] = (byte)0x80;//"က".getBytes("UTF-8");
+        EncodingHelperChar demonstrator = new EncodingHelperChar(4096);
         byte[] actual = demonstrator.toUtf8Bytes();
-        assertEquals("toUtf8Bytes() did not return the expected value for " +
-                        "higher unicode values" , Arrays.toString(expected),
-                Arrays.toString(actual));
+        assertArrayEquals("toUtf8Bytes() did not return the expected value " +
+                "for higher unicode values", expected, actual);
     }
 
     @Test

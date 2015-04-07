@@ -88,8 +88,13 @@ public class EncodingHelperChar {
      * @return the escaped hexadecimal byte string
      */
     public String toUtf8String() {
-        // Not yet implemented.
-        return "";
+        byte[] bytes = this.toUtf8Bytes();
+        StringBuffer output = new StringBuffer();
+        for (byte b: bytes) {
+            output.append("\\x" + String.format("%x",b).toUpperCase());
+        }
+
+        return output.toString();
     }
     
     /**

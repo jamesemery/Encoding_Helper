@@ -45,8 +45,8 @@
       <file leaf-file-name="EncodingHelperCharTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/edu/carleton/emeryj/EncodingHelperCharTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6357616">
-              <caret line="85" column="39" selection-start-line="85" selection-start-column="39" selection-end-line="85" selection-end-column="39" />
+            <state vertical-scroll-proportion="0.66225165">
+              <caret line="85" column="69" selection-start-line="85" selection-start-column="69" selection-end-line="85" selection-end-column="69" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -58,7 +58,7 @@
         <entry file="file://$PROJECT_DIR$/src/edu/carleton/emeryj/EncodingHelperChar.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+              <caret line="93" column="69" selection-start-line="93" selection-start-column="69" selection-end-line="93" selection-end-column="69" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="imports" expanded="true" />
@@ -71,6 +71,16 @@
                 <element signature="e#1019#1020#0" expanded="true" />
                 <element signature="e#1061#1062#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ComparisonCriteria.class" pinned="false" current-in-tab="false">
+        <entry file="jar://$APPLICATION_HOME_DIR$/lib/junit-4.11.jar!/org/junit/internal/ComparisonCriteria.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-11.52">
+              <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -154,10 +164,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="EncodingHelper" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -539,7 +545,7 @@
       <workItem from="1428175993584" duration="7888000" />
       <workItem from="1428282292793" duration="366000" />
       <workItem from="1428282715478" duration="366000" />
-      <workItem from="1428283165199" duration="14674000" />
+      <workItem from="1428283165199" duration="17671000" />
     </task>
     <task id="LOCAL-00001" summary="Testing that I haven't broken things&#10;">
       <created>1428283300779</created>
@@ -559,11 +565,17 @@
       <option name="project" value="LOCAL" />
       <updated>1428373812916</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added functionality to yet more of EncodingHelperChar classes as well as fixing the filepath issue with finding the Unicode database.">
+      <created>1428382832176</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1428382832176</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27319000" />
+    <option name="totallyTimeSpent" value="30316000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="20" y="43" width="1400" height="790" extended-state="0" />
@@ -637,7 +649,8 @@
     <MESSAGE value="Testing that I haven't broken things&#10;" />
     <MESSAGE value="Added unit test cases for EncodingHelperChar" />
     <MESSAGE value="Added UnicodeData.txt and began implemenation for EncodingHelperChar methods" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added UnicodeData.txt and began implemenation for EncodingHelperChar methods" />
+    <MESSAGE value="Added functionality to yet more of EncodingHelperChar classes as well as fixing the filepath issue with finding the Unicode database." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added functionality to yet more of EncodingHelperChar classes as well as fixing the filepath issue with finding the Unicode database." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -771,18 +784,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/edu/carleton/emeryj/UnicodeData.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="27267" column="0" selection-start-line="27267" selection-start-column="0" selection-end-line="27267" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/edu/carleton/emeryj/EncodingHelperChar.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <caret line="93" column="69" selection-start-line="93" selection-start-column="69" selection-end-line="93" selection-end-column="69" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
@@ -798,10 +803,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/junit-4.11.jar!/org/junit/internal/ComparisonCriteria.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.52">
+          <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/carleton/emeryj/UnicodeData.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="27267" column="0" selection-start-line="27267" selection-start-column="0" selection-end-line="27267" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/edu/carleton/emeryj/EncodingHelperCharTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6357616">
-          <caret line="85" column="39" selection-start-line="85" selection-start-column="39" selection-end-line="85" selection-end-column="39" />
+        <state vertical-scroll-proportion="0.66225165">
+          <caret line="85" column="69" selection-start-line="85" selection-start-column="69" selection-end-line="85" selection-end-column="69" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
