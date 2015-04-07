@@ -10,6 +10,11 @@
  */
 package edu.carleton.emeryj;
 
+import java.io.UnsupportedEncodingException;
+import java.util.Scanner;
+import java.io.File;
+import java.io.FileNotFoundException;
+
 public class EncodingHelperChar {
     private int codePoint;
 
@@ -18,11 +23,16 @@ public class EncodingHelperChar {
     }
     
     public EncodingHelperChar(byte[] utf8Bytes) {
-        // Not yet implemented.
+        try {
+            String charachter = new String(utf8Bytes, "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+        }
+
+
     }
     
     public EncodingHelperChar(char ch) {
-        // Not yet implemented.
+        codePoint = (int) ch;
     }
     
     public int getCodePoint() {
@@ -57,8 +67,11 @@ public class EncodingHelperChar {
      * @return the U+ string for this character
      */
     public String toCodePointString() {
-        // Not yet implemented.
-        return "";
+        String hexValue = Integer.toHexString(codePoint).toUpperCase();
+        for (int i = 4 - hexValue.length(); i>0; i--) {
+            hexValue = "0" + hexValue;
+        }
+        return "U+" + hexValue;
     }
     
     /**
@@ -85,7 +98,24 @@ public class EncodingHelperChar {
      * @return this character's Unicode name
      */
     public String getCharacterName() {
-        // Not yet implemented.
-        return "";
+        String unicodeHex = this.toCodePointString().substring(2);
+        File unicodeFile = new File("UnicodeData.txt");
+        String unicodeInfo = "asldf a";
+        try {
+            Scanner scanner = new Scanner(unicodeFile);
+            while (scanner.hasNextLine()){
+                unicodeInfo = scanner.nextLine();
+                if (unicodeHex.equals(unicodeInfo.substring(0,unicodeHex.length()))){
+                    unicodeInfo = unicodeInfo.substring(unicodeHex.length()+1);
+                    unicodeInfo = unicodeInfo.substring(0, unicodeInfo.indexOf(";" +
+                            ""));
+                    break;
+                }
+            }
+
+        } catch (FileNotFoundException e){
+            unicodeInfo = "UnicodeData.txt was not found";
+        }
+        return unicodeInfo;
     }
 }

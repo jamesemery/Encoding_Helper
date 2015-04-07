@@ -80,6 +80,7 @@ public class EncodingHelperCharTest {
     public void testToCodePointString() throws Exception {
         String expected = "U+00E9";
         EncodingHelperChar demonstrator = new EncodingHelperChar('é');
+        //EncodingHelperChar demonstrator = new EncodingHelperChar(233);
         String actual = demonstrator.toCodePointString();
         assertEquals("toCodePointString() did not return the expected value" ,
                 expected, actual);
