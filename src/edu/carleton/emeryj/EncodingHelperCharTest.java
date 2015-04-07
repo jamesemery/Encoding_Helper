@@ -3,6 +3,7 @@ package edu.carleton.emeryj;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
+import java.util.Arrays;
 
 /**
  * Created by jamie on 4/4/15.
@@ -19,6 +20,14 @@ public class EncodingHelperCharTest {
                         "object", expected.getCodePoint(), actual.getCodePoint());
     }
 
+    public void testEncodingHelperCharByteArrayConstrucyorHighValue() throws
+            Exception {
+        EncodingHelperChar expected = new EncodingHelperChar(65536);
+        byte[] test = new byte[(byte)0xF0908080];
+        EncodingHelperChar actual = new EncodingHelperChar(test);
+        assertEquals("The UTF8 ByteArray constructor input does not match " +
+                "object", expected.getCodePoint(), actual.getCodePoint());
+    }
 
     @Test
     public void testEncodingHelperCharCharConstructor() throws Exception {
@@ -60,11 +69,11 @@ public class EncodingHelperCharTest {
 
     @Test
     public void testToUtf8Bytes() throws Exception {
-        byte[] expected = "A".getBytes();
+        byte[] expected = "A".getBytes("UTF-8");
         EncodingHelperChar demonstrator = new EncodingHelperChar(expected);
         byte[] actual = demonstrator.toUtf8Bytes();
         assertEquals("toUtf8Bytes() did not return the expected value" ,
-                expected, actual);
+                Arrays.toString(expected), Arrays.toString(actual));
     }
 
     @Test
@@ -72,8 +81,9 @@ public class EncodingHelperCharTest {
         byte[] expected = "က".getBytes("UTF-8");
         EncodingHelperChar demonstrator = new EncodingHelperChar(expected);
         byte[] actual = demonstrator.toUtf8Bytes();
-        assertEquals("toUtf8Bytes() did not return the expected value" ,
-                expected, actual);
+        assertEquals("toUtf8Bytes() did not return the expected value for " +
+                        "higher unicode values" , Arrays.toString(expected),
+                Arrays.toString(actual));
     }
 
     @Test

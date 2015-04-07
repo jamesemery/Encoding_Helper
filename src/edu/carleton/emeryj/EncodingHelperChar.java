@@ -1,8 +1,4 @@
 /**
- *
- *
- *
- *
  * The main model class for the EncodingHelper project in
  * CS 257, Spring 2015, Carleton College. Each object of this class
  * represents a single Unicode character. The class's methods
@@ -25,10 +21,9 @@ public class EncodingHelperChar {
     public EncodingHelperChar(byte[] utf8Bytes) {
         try {
             String charachter = new String(utf8Bytes, "UTF-8");
+            codePoint = charachter.codePointAt(0);
         } catch (UnsupportedEncodingException e) {
         }
-
-
     }
     
     public EncodingHelperChar(char ch) {
@@ -53,8 +48,16 @@ public class EncodingHelperChar {
      * @return the UTF-8 byte array for this character
      */
     public byte[] toUtf8Bytes() {
-        // Not yet implemented.
-        return null;
+        StringBuffer buff = new StringBuffer();
+        buff.appendCodePoint(codePoint);
+        String value = buff.toString();
+        byte[] output = null;
+        try {
+            output = value.getBytes("UTF-8");
+        } catch (UnsupportedEncodingException e){
+
+        }
+        return output;
     }
     
     /**
@@ -99,8 +102,8 @@ public class EncodingHelperChar {
      */
     public String getCharacterName() {
         String unicodeHex = this.toCodePointString().substring(2);
-        File unicodeFile = new File("UnicodeData.txt");
-        String unicodeInfo = "asldf a";
+        File unicodeFile = new File("./src/edu/carleton/emeryj/UnicodeData.txt");
+        String unicodeInfo = "";
         try {
             Scanner scanner = new Scanner(unicodeFile);
             while (scanner.hasNextLine()){
