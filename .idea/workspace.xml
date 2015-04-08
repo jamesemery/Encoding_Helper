@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="65e2ade6-834f-4ce5-85c8-bde2fe8cd7aa" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/edu/carleton/emeryj/EncodingHelperChar.java" afterPath="$PROJECT_DIR$/src/edu/carleton/emeryj/EncodingHelperChar.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/edu/carleton/emeryj/EncodingHelperCharTest.java" afterPath="$PROJECT_DIR$/src/edu/carleton/emeryj/EncodingHelperCharTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="EncodingHelper.iws" />
@@ -42,11 +41,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EncodingHelperCharTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="EncodingHelperCharTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/edu/carleton/emeryj/EncodingHelperCharTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.66225165">
-              <caret line="85" column="69" selection-start-line="85" selection-start-column="69" selection-end-line="85" selection-end-column="69" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="83" column="33" selection-start-line="83" selection-start-column="33" selection-end-line="83" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -58,28 +57,26 @@
         <entry file="file://$PROJECT_DIR$/src/edu/carleton/emeryj/EncodingHelperChar.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="93" column="69" selection-start-line="93" selection-start-column="69" selection-end-line="93" selection-end-column="69" />
+              <caret line="42" column="24" selection-start-line="42" selection-start-column="24" selection-end-line="42" selection-end-column="24" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="imports" expanded="true" />
                 <element signature="e#519#520#0" expanded="true" />
                 <element signature="e#561#562#0" expanded="true" />
-                <element signature="e#858#859#0" expanded="true" />
-                <element signature="e#894#895#0" expanded="true" />
-                <element signature="e#931#932#0" expanded="true" />
-                <element signature="e#968#969#0" expanded="true" />
-                <element signature="e#1019#1020#0" expanded="true" />
-                <element signature="e#1061#1062#0" expanded="true" />
+                <element signature="e#1423#1424#0" expanded="true" />
+                <element signature="e#1460#1461#0" expanded="true" />
+                <element signature="e#1511#1512#0" expanded="true" />
+                <element signature="e#1553#1554#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ComparisonCriteria.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$APPLICATION_HOME_DIR$/lib/junit-4.11.jar!/org/junit/internal/ComparisonCriteria.class">
+      <file leaf-file-name="BitDemo.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/edu/carleton/emeryj/BitDemo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.52">
-              <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+            <state vertical-scroll-proportion="1.7880795">
+              <caret line="54" column="54" selection-start-line="54" selection-start-column="54" selection-end-line="54" selection-end-column="54" />
               <folding />
             </state>
           </provider>
@@ -117,8 +114,8 @@
       <list>
         <option value="$PROJECT_DIR$/src/edu/carleton/emeryj/Main.java" />
         <option value="$PROJECT_DIR$/src/edu/carleton/emeryj/UnicodeData.txt" />
-        <option value="$PROJECT_DIR$/src/edu/carleton/emeryj/EncodingHelperChar.java" />
         <option value="$PROJECT_DIR$/src/edu/carleton/emeryj/EncodingHelperCharTest.java" />
+        <option value="$PROJECT_DIR$/src/edu/carleton/emeryj/EncodingHelperChar.java" />
       </list>
     </option>
   </component>
@@ -545,7 +542,7 @@
       <workItem from="1428175993584" duration="7888000" />
       <workItem from="1428282292793" duration="366000" />
       <workItem from="1428282715478" duration="366000" />
-      <workItem from="1428283165199" duration="17671000" />
+      <workItem from="1428283165199" duration="20795000" />
     </task>
     <task id="LOCAL-00001" summary="Testing that I haven't broken things&#10;">
       <created>1428283300779</created>
@@ -571,11 +568,17 @@
       <option name="project" value="LOCAL" />
       <updated>1428382832176</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added functionality to yet more of EncodingHelperChar classes as well as fixing the filepath issue with finding the Unicode database.">
+      <created>1428424896170</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1428424896170</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30316000" />
+    <option name="totallyTimeSpent" value="33440000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="20" y="43" width="1400" height="790" extended-state="0" />
@@ -595,6 +598,7 @@
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32871014" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -605,7 +609,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -690,12 +693,10 @@
             <element signature="imports" expanded="true" />
             <element signature="e#519#520#0" expanded="true" />
             <element signature="e#561#562#0" expanded="true" />
-            <element signature="e#858#859#0" expanded="true" />
-            <element signature="e#894#895#0" expanded="true" />
-            <element signature="e#931#932#0" expanded="true" />
-            <element signature="e#968#969#0" expanded="true" />
-            <element signature="e#1019#1020#0" expanded="true" />
-            <element signature="e#1061#1062#0" expanded="true" />
+            <element signature="e#1423#1424#0" expanded="true" />
+            <element signature="e#1460#1461#0" expanded="true" />
+            <element signature="e#1511#1512#0" expanded="true" />
+            <element signature="e#1553#1554#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -784,33 +785,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/edu/carleton/emeryj/EncodingHelperChar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="93" column="69" selection-start-line="93" selection-start-column="69" selection-end-line="93" selection-end-column="69" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="imports" expanded="true" />
-            <element signature="e#519#520#0" expanded="true" />
-            <element signature="e#561#562#0" expanded="true" />
-            <element signature="e#858#859#0" expanded="true" />
-            <element signature="e#894#895#0" expanded="true" />
-            <element signature="e#931#932#0" expanded="true" />
-            <element signature="e#968#969#0" expanded="true" />
-            <element signature="e#1019#1020#0" expanded="true" />
-            <element signature="e#1061#1062#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/junit-4.11.jar!/org/junit/internal/ComparisonCriteria.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.52">
-          <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/edu/carleton/emeryj/UnicodeData.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -819,13 +793,46 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/carleton/emeryj/EncodingHelperChar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="42" column="24" selection-start-line="42" selection-start-column="24" selection-end-line="42" selection-end-column="24" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#519#520#0" expanded="true" />
+            <element signature="e#561#562#0" expanded="true" />
+            <element signature="e#1423#1424#0" expanded="true" />
+            <element signature="e#1460#1461#0" expanded="true" />
+            <element signature="e#1511#1512#0" expanded="true" />
+            <element signature="e#1553#1554#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/junit-4.11.jar!/org/junit/internal/ComparisonCriteria.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.50934577">
+          <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/edu/carleton/emeryj/EncodingHelperCharTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.66225165">
-          <caret line="85" column="69" selection-start-line="85" selection-start-column="69" selection-end-line="85" selection-end-column="69" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="83" column="33" selection-start-line="83" selection-start-column="33" selection-end-line="83" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/carleton/emeryj/BitDemo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.7880795">
+          <caret line="54" column="54" selection-start-line="54" selection-start-column="54" selection-end-line="54" selection-end-column="54" />
+          <folding />
         </state>
       </provider>
     </entry>

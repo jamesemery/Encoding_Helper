@@ -24,10 +24,25 @@ public class EncodingHelperChar {
             codePoint = charachter.codePointAt(0);
         } catch (UnsupportedEncodingException e) {
         }
+        /*if (utf8Bytes.length == 1) {
+            codePoint = (int)utf8Bytes[0];
+        } else if (utf8Bytes.length == 2) {
+
+        } else if (utf8Bytes.length == 3) {
+
+        } else if (utf8Bytes.length == 4) {
+
+        } else if (utf8Bytes.length == 5) {
+
+        } else if (utf8Bytes.length == 6) {
+
+        }*/
     }
     
     public EncodingHelperChar(char ch) {
-        codePoint = (int) ch;
+        codePoint = (int) ch; //Note: this only works for codepoints under
+        // U+FFFF, after that there will be no guarintees about how it is
+        // handled because of the java char primitive
     }
     
     public int getCodePoint() {
@@ -58,6 +73,7 @@ public class EncodingHelperChar {
 
         }
         return output;
+
     }
     
     /**
