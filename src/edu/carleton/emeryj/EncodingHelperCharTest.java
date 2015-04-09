@@ -14,7 +14,8 @@ public class EncodingHelperCharTest {
     public void testEncodingHelperCharConstructorByteArray() throws Exception {
         EncodingHelperChar expected = new EncodingHelperChar(65);
         expected.setCodePoint(65);
-        byte[] test = "A".getBytes("UTF-8");
+        byte[] test = new byte[1];
+        test[0] = 0x41;
         EncodingHelperChar actual = new EncodingHelperChar(test);
         assertEquals("The UTF8 ByteArray constructor input does not match " +
                         "object", expected.getCodePoint(), actual.getCodePoint());
@@ -78,7 +79,19 @@ public class EncodingHelperCharTest {
     }
 
     @Test
-    public void testToUtf8BytesHighValue() throws Exception {
+    public void testToUtf8BytesTwoBytes() throws Exception {
+        byte[] expected = new byte[2];
+        expected[0] = (byte)0xC4;
+        expected[1] = (byte)0xa0;
+        EncodingHelperChar demonstrator = new EncodingHelperChar(288);
+        byte[] actual = demonstrator.toUtf8Bytes();
+        assertArrayEquals("toUtf8Bytes() did not return the expected value " +
+                        "for an expected 2 byte value",
+                expected, actual);
+    }
+
+    @Test
+    public void testToUtf8BytesThreeBytes() throws Exception {
         byte[] expected = new byte[3];
         expected[0] = (byte)0xE1;
         expected[1] = (byte)0x80;
@@ -86,7 +99,20 @@ public class EncodingHelperCharTest {
         EncodingHelperChar demonstrator = new EncodingHelperChar(4096);
         byte[] actual = demonstrator.toUtf8Bytes();
         assertArrayEquals("toUtf8Bytes() did not return the expected value " +
-                "for higher unicode values", expected, actual);
+                "for an expected 3 byte value", expected, actual);
+    }
+
+    @Test
+    public void testToUtf8BytesFourBytes() throws Exception {
+        byte[] expected = new byte[4];
+        expected[0] = (byte)0xf1;
+        expected[1] = (byte)0x80;
+        expected[2] = (byte)0x80;
+        expected[3] = (byte)0xa4;//"က".getBytes("UTF-8");
+        EncodingHelperChar demonstrator = new EncodingHelperChar(expected);
+        byte[] actual = demonstrator.toUtf8Bytes();
+        assertArrayEquals("toUtf8Bytes() did not return the expected value " +
+                "for an expected 4 byte value", expected, actual);
     }
 
     @Test
@@ -95,7 +121,7 @@ public class EncodingHelperCharTest {
         EncodingHelperChar demonstrator = new EncodingHelperChar('é');
         //EncodingHelperChar demonstrator = new EncodingHelperChar(233);
         String actual = demonstrator.toCodePointString();
-        assertEquals("toCodePointString() did not return the expected value" ,
+        assertEquals("toCodePointString() did not return the expected value",
                 expected, actual);
     }
 
@@ -117,13 +143,33 @@ public class EncodingHelperCharTest {
                 expected, actual);
     }
 
+    @Test
+    public void testGetCharacterNameControlCharacter() throws Exception {
+    String expected = "<control> BELL";
+        EncodingHelperChar demonstrator = new EncodingHelperChar(0x0007);
+        String actual = demonstrator.getCharacterName();
+        assertEquals("getCharacterName() did not return the expected value " +
+                "when the codepoint was a control character", expected,
+                actual);
+    }
+
+    @Test
+    public void testGetCharacterNameUnknownCharacter() throws Exception {
+        String expected = "<unknown> U+3FFF";
+        EncodingHelperChar demonstrator = new EncodingHelperChar(0x3fff);
+        String actual = demonstrator.getCharacterName();
+        assertEquals("getCharacterName() did not return the expected value " +
+                "when the codepoint was unassigned", expected, actual);
+    }
 
     @Test
     public void testGetCharacterName() throws Exception {
         String expected = "LATIN SMALL LETTER E WITH ACUTE";
         EncodingHelperChar demonstrator = new EncodingHelperChar('é');
         String actual = demonstrator.getCharacterName();
-        assertEquals("getCharacterName() did not return the expected value" ,
+        assertEquals("getCharacterName() did not return the expected value",
                 expected, actual);
     }
+
+
 }
