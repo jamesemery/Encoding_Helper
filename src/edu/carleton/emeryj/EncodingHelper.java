@@ -3,6 +3,9 @@ package edu.carleton.emeryj;
 /**
  * Created by jamie on 4/12/15.
  */
+
+import java.util.Arrays;
+
 public class EncodingHelper {
 
     private static String inputType = "default";
@@ -57,7 +60,14 @@ public class EncodingHelper {
      */
     private static boolean inputCheck(String[] args) throws Exception{
         int index = 0;
+        if (args.length == 0) {
+            throw new IllegalArgumentException("");
+        }
+
+
+
         if (args[index].equals("-i") | args[index].equals("--input")) {
+
             index++;
             if (args[index].toLowerCase().equals("string")) {
                 inputType = "string";
@@ -115,42 +125,20 @@ public class EncodingHelper {
             Exception {
         boolean inputChanged = false;
         boolean outputChanged = false;
-        int index = 0;
+        String[] output = args;
         try {
             if (inputCheck(args)) {
-                args =
+                output = Arrays.copyOfRange(args, 2, args.length);
+                inputChanged = true;
+            } else if (outputCheck(args)) {
+                output = Arrays.copyOfRange(args, 2, args.length);
+                outputChanged = true;
             }
+
         } catch (IllegalArgumentException e){
             throw e;
         }
 
-
-        if (args[index].equals("-i") | args[index].equals("--input")) {
-            index++;
-            if (args[index].toLowerCase().equals("string")) {
-                inputType = "string";
-                inputChanged = true;
-            } else if (args[index].toLowerCase().equals("utf8")) {
-                inputType = "utf8";
-                inputChanged = true;
-            } else if (args[index].toLowerCase().equals("codepoint")) {
-                inputType = "codepoint";
-                inputChanged = true;
-            }
-        } else if (args[index].equals("-o") | args[index].equals("--output")) {
-            index++;
-            if (args[index].toLowerCase().equals("string")) {
-                outputType = "string";
-                outputChanged = true;
-            } else if (args[index].toLowerCase().equals("utf8")) {
-                outputType = "utf8";
-                outputChanged = true;
-            } else if (args[index].toLowerCase().equals("codepoint")) {
-                outputType = "codepoint";
-                outputChanged = true;
-            } else if (args[index].toLowerCase().equals("summary")) {
-                outputType = "symmary";
-                outputChanged = true;
     }
 
 
