@@ -572,7 +572,7 @@
       <workItem from="1428175993584" duration="7888000" />
       <workItem from="1428282292793" duration="366000" />
       <workItem from="1428282715478" duration="366000" />
-      <workItem from="1428283165199" duration="58597000" />
+      <workItem from="1428283165199" duration="58607000" />
     </task>
     <task id="LOCAL-00001" summary="Testing that I haven't broken things&#10;">
       <created>1428283300779</created>
@@ -634,11 +634,17 @@
       <option name="project" value="LOCAL" />
       <updated>1428890360933</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Finished functionality to EncodingHelper Class as well as adding funcitonality to EncodingHelperChar to produce an array of EncodingHelperChar objects from a given encoded byte array">
+      <created>1428890371792</created>
+      <option name="number" value="00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1428890371792</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="71242000" />
+    <option name="totallyTimeSpent" value="71252000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="20" y="43" width="1400" height="790" extended-state="0" />
