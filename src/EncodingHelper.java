@@ -3,6 +3,6 @@
  */
 public class EncodingHelper {
     public static void main(String[] args) {
-        edu.carleton.emeryj.Main.main(args);
+        edu.carleton.emeryj.EncodingHelper.main(args);
     }
 }
