@@ -9,29 +9,6 @@ import static org.junit.Assert.*;
  */
 public class EncodingHelperTest {
 
-    @Test
-    public void testMain() throws Exception {
-
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     //Tiny helper function that converts arrays of EncodingHelperChar to int
     // arrays corresponding to their codepoint
     private int[] convert(EncodingHelperChar[] chars) {
@@ -42,84 +19,66 @@ public class EncodingHelperTest {
         return output;
     }
 
-    //For testing of private methods they have simply been coppied into this
-    // file past this point. Everything below is not test code, it is code
-    // coppied from EncodingHelper into here so we can run unit tests
-    /**
-     * Prints out a useful help message about the function and usage cases of
-     * this class for the user
-     */
-    private static boolean inputCheck(String[] args) throws IllegalArgumentException{
-        int index = 0;
-        if (args.length == 0) {
-            throw new IllegalArgumentException("No argument given");
-        }
-        if (args[index].equals("-i") | args[index].equals("--input")) {
-            if (args.length == 1) {
-                throw new IllegalArgumentException("No Input Argument Given " +
-                        "\nProper format is [-i or --input] <input " +
-                        "type>\nValid" +
-                        " input types are: string, codepoint, utf8");
-            }
-            index++;
-            if (args[index].toLowerCase().equals("string")) {
-                //inputType = "string";
-                return true;
-            } else if (args[index].toLowerCase().equals("utf8")) {
-                //inputType = "utf8";
-                return true;
-            } else if (args[index].toLowerCase().equals("codepoint")) {
-                //inputType = "codepoint";
-                return true;
-            }
-            throw new IllegalArgumentException("Invalid Input Type " +
-                    "\nProper format is [-i or --input] <input type>\nValid" +
-                    " input types are: string, codepoint, utf8");
-        }
-        return false;
+    @Test
+    public void testGetCharList() throws Exception {
+        String[] args = {"\\x00x41x00","0x41","0041"};
+        EncodingHelperChar[] actual = EncodingHelper.getCharList(args);
+        int[] expected = {0x0000,0x0041,0x0000,0x0041,0x0000,0x0041 };
+        assertEquals("testGetCharList() did not return the expected value for" +
+                " byte array inputs", convert(actual), expected);
     }
 
-    /**
-     * Prints out a useful help message about the function and usage cases of
-     * this class for the user
-     */
-    private static boolean outputCheck(String[] args) throws IllegalArgumentException{
-        int index = 0;
-        if (args.length == 0) {
-            throw new IllegalArgumentException("No argument given");
-        }
-        if (args[index].equals("-o") | args[index].equals("--output")) {
-            if (args.length == 1) {
-                throw new IllegalArgumentException("No Onput Argument Given " +
-                        "\nProper format is [-o or --output] <output " +
-                        "type>\nValid" +
-                        " output types are: string, codepoint, utf8");
-            }
-            index++;
-            if (args[index].toLowerCase().equals("string")) {
-                //outputType = "string";
-                return true;
-            } else if (args[index].toLowerCase().equals("utf8")) {
-                //outputType = "utf8";
-                return true;
-            } else if (args[index].toLowerCase().equals("codepoint")) {
-                //outputType = "codepoint";
-                return true;
-            } else if (args[index].toLowerCase().equals("summary")) {
-                //outputType = "summary";
-                return true;
-            }
-            throw new IllegalArgumentException("Invalid Output Type " +
-                    "\nProper format is [-o or --output] <output type>\nValid" +
-                    " output types are: string, codepoint, utf8, summary");
-        }
-        return false;
+    @Test
+    public void testParseCodepoint() throws Exception {
+        String args = "u0003u222fu888fu11111";
+        EncodingHelperChar[] actual = EncodingHelper.parseCodepoint(args);
+        int[] expected = {0x0003,0x222f,0x888f,0x11111 };
+        assertEquals("parseCodePoint() did not return the expected value for" +
+                " string input", convert(actual), expected);
     }
 
+    @Test
+    public void testGetCharListString() throws Exception {
+        String args = "être";
+        EncodingHelperChar[] actual = EncodingHelper.getCharListString(args);
+        int[] expected = {0x00EA,0x0074,0x0072,0x0065 };
+        assertEquals("getCharListString() did not return the expected value " +
+                "for string input", convert(actual), expected);
+    }
 
+    @Test
+    public void testGetCharListUtf8Bytes() throws Exception {
+        String args = "\\x0\\x41\\x0\\x41\\x0\\x41";
+        EncodingHelperChar[] actual = EncodingHelper.getCharListUtf8Bytes(args);
+        int[] expected = {0x0000,0x0041,0x0000,0x0041,0x0000,0x0041 };
+        assertEquals("getCharListUtf8Bytes() did not return the expected " +
+                "value for string input", convert(actual), expected);
+    }
 
+    @Test
+    public void testInputCheck() throws Exception {
+            String[] args = {"-i", "String"};
+            boolean actual = EncodingHelper.inputCheck(args);
+            boolean expected = true;
+            assertEquals("inputCheck() did not return the expected " +
+                    "value for string input", actual, expected);
+    }
 
+    @Test
+    public void testOutputCheck() throws Exception {
+        String[] args = {"-o", "String"};
+        boolean actual = EncodingHelper.outputCheck(args);
+        boolean expected = true;
+        assertEquals("outputCheck() did not return the expected " +
+                "value for string input", actual, expected);
+    }
 
-
-
+    @Test
+    public void testParseUserPrefrences() throws Exception {
+        String[] args = {"-o", "String","-i", "codepoint","Hello World?"};
+        String[] actual = EncodingHelper.parseUserPrefrences(args);
+        String[] expected = {"Hello World?"};
+        assertArrayEquals("parseUserPrefrences() did not return the expected" +
+                " value for string input", actual, expected);
+    }
 }

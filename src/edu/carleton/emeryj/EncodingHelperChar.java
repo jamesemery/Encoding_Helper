@@ -286,7 +286,6 @@ public class EncodingHelperChar {
         } catch (IllegalArgumentException e) {
             throw e;
         }
-
         EncodingHelperChar[] output = new EncodingHelperChar[pointList.size()];
         output = pointList.toArray(output);
 

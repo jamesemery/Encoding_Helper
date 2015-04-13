@@ -6,6 +6,7 @@ package edu.carleton.emeryj;
 
 import java.util.Arrays;
 import java.util.ArrayList;
+import edu.carleton.emeryj.EncodingHelperChar;
 
 public class EncodingHelper {
 
@@ -17,75 +18,89 @@ public class EncodingHelper {
 
 
     /**
-     * Prints out a useful help message about the function and usage cases of
-     * this class for the user
+     * Takes the hitherto specified user input and output prefrences stored
+     * in the class and prints out to the command line and prints out the
+     * valid output based on the users prefrence requests.
      */
-    private static void printOutput(EncodingHelperChar[] chars) {
+    public static String getOutput(EncodingHelperChar[] chars) {
 
-
+        StringBuffer buff = new StringBuffer();
         if (outputType.equals("summary")|outputType.equals("string")) {
-            StringBuffer buff = new StringBuffer();
-            if (chars.length == 1) {
-                buff.append("Character: ");
-            } else {
-                buff.append("String: ");
+            if (outputType.equals("summary")) {
+                if (chars.length == 1) {
+                    buff.append("Character: ");
+                } else {
+                    buff.append("String: ");
+                }
             }
             for (EncodingHelperChar c : chars) {
                 buff.appendCodePoint(c.getCodePoint());
             }
-            System.out.println(buff.toString());
+            buff.append("\n");
         }
 
         if (outputType.equals("summary")|outputType.equals("codepoint")) {
-            String line = null;
-            if (chars.length == 1) {
-                line = "Codepoint: ";
-            } else {
-                line = "Codepoints: ";
+            String line ="";
+            if (outputType.equals("summary")) {
+                if (chars.length == 1) {
+                    line = "Codepoint: ";
+                } else {
+                    line = "Codepoints: ";
+                }
             }
             for (EncodingHelperChar c : chars) {
                 line = line + c.toCodePointString() + " ";
             }
-            System.out.println(line);
+            buff.append(line);
+            buff.append("\n");
         }
 
         if (outputType.equals("summary")&(chars.length==1)) {
             String line = "Name :" + chars[0].getCharacterName();
-            System.out.println(line);
+            buff.append(line);
+            buff.append("\n");
         }
 
 
         if (outputType.equals("summary")|outputType.equals("utf8")) {
-            String line = "UTF-8: ";
+            String line = "";
+            if (outputType.equals("summary")) {
+                line = "UTF-8: ";
+            }
             for (EncodingHelperChar c : chars) {
                 line = line + c.toUtf8String();
             }
-            System.out.println(line);
+            buff.append(line);
         }
-
+        return buff.toString();
     }
 
     /**
      * Prints out a useful help message about the function and usage cases of
      * this class for the user
      */
-    private static void printHelpMessage() {
-        System.out.println(" Usage: [-h|--help] [-i|--input inputType] " +
-                        "[-o|--output outputType] <data> \n inputType: " +
-                        "string, utf8, codepoint \n outputType: string, utf8," +
-                        " codepoint, summary \n\n Usage: [-h|--help] " +
-                        "[-i|--input inputType] [-o|--output outputType] " +
-                        "<data> \n help: prints out a detailed help message " +
-                        "\n input: specifies what inputType the data is \n " +
-                        "inputType: the data can either be represented as a " +
-                        "string ('string'), as UTF-8 ('utf8'), or as Unicode " +
-                        "codepoints ('codepoint') \n output: specifies what " +
-                        "outputType EncodingHelper should print out \n " +
-                        "outputType: the data can be any of the types that " +
-                        "inputType handles or summary ('summary'), which " +
-                        "prints out all three choices \n data: the data that " +
-                        "is  to be converted by EncodingHelper from the  " +
-                        "inputType to the outputType");
+    public static String helpMessage() {
+        return " Usage: [-h|--help] [-i|--input inputType] " +
+                "[-o|--output outputType] <data> \n inputType: " +
+                "string, utf8, codepoint \n outputType: string, utf8," +
+                " codepoint, summary";
+    }
+
+
+    public static String longHelpMessage() {
+        return "Usage: [-h|--help] " +
+                "[-i|--input inputType] [-o|--output outputType] " +
+                "<data> \n help: prints out a detailed help message " +
+                "\n input: specifies what inputType the data is \n " +
+                "inputType: the data can either be represented as a " +
+                "string ('string'), as UTF-8 ('utf8'), or as Unicode " +
+                "codepoints ('codepoint') \n output: specifies what " +
+                "outputType EncodingHelper should print out \n " +
+                "outputType: the data can be any of the types that " +
+                "inputType handles or summary ('summary'), which " +
+                "prints out all three choices \n data: the data that " +
+                "is  to be converted by EncodingHelper from the  " +
+                "inputType to the outputType";
     }
 
 
@@ -97,9 +112,8 @@ public class EncodingHelper {
      *
      * @returns an array of EncodingHelperChar objects.
      */
-    private static EncodingHelperChar[] getCharList(String[] args) throws
+    public static EncodingHelperChar[] getCharList(String[] args) throws
     IllegalArgumentException {
-
         try {
             if (inputType.equals("string")) {
                 String user = args[0];
@@ -116,7 +130,7 @@ public class EncodingHelper {
                 String user = args[0];
                 int i = 1;
                 while (i < args.length) {
-                    user = user + args[i];
+                    user = user + " " + args[i];
                     i++;
                 }
                 return getCharListUtf8Bytes(user);
@@ -147,11 +161,12 @@ public class EncodingHelper {
      * Throws an exception if there are non-hex values or if the codepoints of the
      * hex values are too high for Unicode.
      */
-    private static EncodingHelperChar[] parseCodepoint(String arg) throws
+    public static EncodingHelperChar[] parseCodepoint(String arg) throws
             IllegalArgumentException {
 
         //Strips the string of fomatting and space seperates it
-        arg = arg.replaceAll("[uU\\\\]*[\\+uU]" ," ");
+        arg = arg.replaceAll("[uU\\\\]*[\\+uU]", " ");
+        arg = arg.trim();
         String[] scrubbedPoints = arg.split(" +");
 
 
@@ -160,7 +175,7 @@ public class EncodingHelper {
                 .length];
         for (int i = 0; i < scrubbedPoints.length; i++) {
             try {
-                int codepoint = Integer.parseInt(scrubbedPoints[i]);
+                int codepoint = Integer.parseInt(scrubbedPoints[i],16);
                 output[i] = new EncodingHelperChar(codepoint);
             } catch (NumberFormatException e) {
                 throw new IllegalArgumentException("Improperly formatted " +
@@ -180,7 +195,7 @@ public class EncodingHelper {
      *
      * @returns an array of EncodingHelperChar objects.
      */
-    private static EncodingHelperChar[] getCharListString(String input) {
+    public static EncodingHelperChar[] getCharListString(String input) {
         EncodingHelperChar[] output = new EncodingHelperChar[input.length()];
         for (int i = 0; i < input.length(); i++) {
             try {
@@ -200,10 +215,12 @@ public class EncodingHelper {
      *
      * @return an array of EncodingHelperChar objects
      */
-    private static EncodingHelperChar[] getCharListUtf8Bytes(String arg)
+    public static EncodingHelperChar[] getCharListUtf8Bytes(String arg)
             throws IllegalArgumentException {
+        arg = arg.replaceAll(" 0x", "");
         arg = arg.replaceAll("\\\\*x","");
         arg = arg.replaceAll(" *","");
+        arg = arg.replaceAll("[\'\"]","");
         if ((arg.length()%2)>0) {
             throw new IllegalArgumentException("Improperly formatted byes, " +
                     "expected an even number of hexidecimal characters");
@@ -211,7 +228,7 @@ public class EncodingHelper {
         byte[] utf8Array = new byte[arg.length()/2];
 
         for (int i = 0; i < arg.length();i+=2) {
-            int parsedbyte  = Integer.getInteger(arg.substring(i,i+2));
+            int parsedbyte  = Integer.parseInt(arg.substring(i, i + 2), 16);
             utf8Array[i/2] = (byte)parsedbyte;
         }
         EncodingHelperChar[] output;
@@ -220,7 +237,6 @@ public class EncodingHelper {
         } catch (IllegalArgumentException e){
             throw e;
         }
-
         return output;
     }
 
@@ -233,7 +249,8 @@ public class EncodingHelper {
      *
      * @return if the first two indices of the string array are input arguments.
      */
-    private static boolean inputCheck(String[] args) throws IllegalArgumentException{
+    public static boolean inputCheck(String[] args) throws
+            IllegalArgumentException{
         int index = 0;
         if (args.length == 0) {
             throw new IllegalArgumentException("No argument given");
@@ -273,7 +290,8 @@ public class EncodingHelper {
      * @return if the first two indices of the string array are output
      * arguments.
      */
-    private static boolean outputCheck(String[] args) throws IllegalArgumentException{
+    public static boolean outputCheck(String[] args) throws
+            IllegalArgumentException{
         int index = 0;
         if (args.length == 0) {
             throw new IllegalArgumentException("No argument given");
@@ -319,7 +337,7 @@ public class EncodingHelper {
      *
      * @return the command line arguments without user preference settings.
      */
-    private static String[] parseUserPrefrences(String[] args) throws
+    public static String[] parseUserPrefrences(String[] args) throws
             IllegalArgumentException {
 
         boolean inputChanged = false;
@@ -329,23 +347,23 @@ public class EncodingHelper {
 
             //checks to see if the input or output is specified and shortens
             // the array if one is specified
-            if (inputCheck(args)) {
-                output = Arrays.copyOfRange(args, 2, args.length);
+            if (inputCheck(output)) {
+                output = Arrays.copyOfRange(output, 2, output.length);
                 inputChanged = true;
-            } else if (outputCheck(args)) {
-                output = Arrays.copyOfRange(args, 2, args.length);
+            } else if (outputCheck(output)) {
+                output = Arrays.copyOfRange(output, 2, output.length);
                 outputChanged = true;
             }
 
             //checks if there is a second input or output specified and
             // shortens the array further, throwin exception if array is empty
-            if (inputCheck(args)) {
+            if (inputCheck(output)) {
                 if (inputChanged) {
                     throw new IllegalArgumentException("Input may only be " +
                             "specified once");
                 }
                 output = Arrays.copyOfRange(output, 2, output.length);
-            } else if (outputCheck(args)) {
+            } else if (outputCheck(output)) {
                 if (outputChanged) {
                     throw new IllegalArgumentException("Output may only be " +
                             "specified once");
@@ -364,24 +382,24 @@ public class EncodingHelper {
 
 
 
-    static void main(String[] args) {
+    public static void main(String[] args) {
 
         if (args.length == 0) {
-            printHelpMessage();
+            System.out.println(helpMessage());
         } else if (args.length == 1 ) {
             if (args[0].equals("-h") | args[0].equals("--help")) {
-                printHelpMessage();
+                System.out.println(longHelpMessage());
             } else {
                 EncodingHelperChar[] userInput = getCharListString(args[0]);
-                printOutput(userInput);
+                System.out.println(getOutput(userInput));
             }
         } else {
             try {
                 args = parseUserPrefrences(args);
                 EncodingHelperChar[] userInput = getCharList(args);
-                printOutput(userInput);
+                System.out.println(getOutput(userInput));
             } catch (IllegalArgumentException e) {
-                System.out.print(e);
+                System.out.println(e.getMessage());
             }
         }
     }
