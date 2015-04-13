@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="65e2ade6-834f-4ce5-85c8-bde2fe8cd7aa" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/edu/carleton/emeryj/EncodingHelperChar.java" afterPath="$PROJECT_DIR$/src/edu/carleton/emeryj/EncodingHelperChar.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.txt" afterPath="$PROJECT_DIR$/README.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -31,11 +32,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="EncodingHelperChar.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="EncodingHelperChar.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/edu/carleton/emeryj/EncodingHelperChar.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="289" column="43" selection-start-line="289" selection-start-column="43" selection-end-line="289" selection-end-column="43" />
+            <state vertical-scroll-proportion="5.8098593">
+              <caret line="165" column="38" selection-start-line="165" selection-start-column="38" selection-end-line="165" selection-end-column="38" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="imports" expanded="true" />
@@ -43,7 +44,7 @@
                 <element signature="e#2474#2475#0" expanded="true" />
                 <element signature="e#2525#2526#0" expanded="true" />
                 <element signature="e#2567#2568#0" expanded="true" />
-                <element signature="e#8198#8218#0" expanded="true" />
+                <element signature="e#8194#8214#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -97,10 +98,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EncodingHelper.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="EncodingHelper.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/EncodingHelper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.26490065">
+            <state vertical-scroll-proportion="0.0">
               <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
               <folding />
             </state>
@@ -175,10 +176,10 @@
         <option value="$PROJECT_DIR$/src/edu/carleton/emeryj/Main.java" />
         <option value="$PROJECT_DIR$/src/edu/carleton/emeryj/UnicodeData.txt" />
         <option value="$PROJECT_DIR$/src/edu/carleton/emeryj/EncodingHelperCharTest.java" />
-        <option value="$PROJECT_DIR$/src/edu/carleton/emeryj/EncodingHelperChar.java" />
         <option value="$PROJECT_DIR$/src/edu/carleton/emeryj/EncodingHelper.java" />
         <option value="$PROJECT_DIR$/src/edu/carleton/emeryj/EncodingHelperTest.java" />
         <option value="$PROJECT_DIR$/src/EncodingHelper.java" />
+        <option value="$PROJECT_DIR$/src/edu/carleton/emeryj/EncodingHelperChar.java" />
       </list>
     </option>
   </component>
@@ -287,6 +288,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="production" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EncodingHelper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EncodingHelper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="out" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="production" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EncodingHelper" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -659,7 +682,7 @@
       <workItem from="1428175993584" duration="7888000" />
       <workItem from="1428282292793" duration="366000" />
       <workItem from="1428282715478" duration="366000" />
-      <workItem from="1428283165199" duration="67394000" />
+      <workItem from="1428283165199" duration="67870000" />
     </task>
     <task id="LOCAL-00001" summary="Testing that I haven't broken things&#10;">
       <created>1428283300779</created>
@@ -763,11 +786,17 @@
       <option name="project" value="LOCAL" />
       <updated>1428898816522</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Finished functionality to EncodingHelper Class as well as adding funcitonality to EncodingHelperChar to produce an array of EncodingHelperChar objects from a given encoded byte array as well as a number of additional unit tests">
+      <created>1428899263857</created>
+      <option name="number" value="00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1428899263857</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="80039000" />
+    <option name="totallyTimeSpent" value="80515000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="20" y="43" width="1400" height="790" extended-state="0" />
@@ -897,7 +926,7 @@
             <element signature="e#2474#2475#0" expanded="true" />
             <element signature="e#2525#2526#0" expanded="true" />
             <element signature="e#2567#2568#0" expanded="true" />
-            <element signature="e#8198#8218#0" expanded="true" />
+            <element signature="e#8194#8214#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1020,22 +1049,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/edu/carleton/emeryj/EncodingHelperChar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="289" column="43" selection-start-line="289" selection-start-column="43" selection-end-line="289" selection-end-column="43" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="imports" expanded="true" />
-            <element signature="e#2437#2438#0" expanded="true" />
-            <element signature="e#2474#2475#0" expanded="true" />
-            <element signature="e#2525#2526#0" expanded="true" />
-            <element signature="e#2567#2568#0" expanded="true" />
-            <element signature="e#8198#8218#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/edu/carleton/emeryj/UnicodeData.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.6666665">
@@ -1105,9 +1118,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/EncodingHelper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.26490065">
+        <state vertical-scroll-proportion="0.0">
           <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/carleton/emeryj/EncodingHelperChar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="5.8098593">
+          <caret line="165" column="38" selection-start-line="165" selection-start-column="38" selection-end-line="165" selection-end-column="38" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#2437#2438#0" expanded="true" />
+            <element signature="e#2474#2475#0" expanded="true" />
+            <element signature="e#2525#2526#0" expanded="true" />
+            <element signature="e#2567#2568#0" expanded="true" />
+            <element signature="e#8194#8214#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

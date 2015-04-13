@@ -163,7 +163,7 @@ public class EncodingHelperChar {
      */
     public String getCharacterName() {
         String unicodeHex = toCodePointString().substring(2);
-        File unicodeFile = new File("./src/edu/carleton/emeryj/UnicodeData.txt");
+        File unicodeFile = new File("./edu/carleton/emeryj/UnicodeData.txt");
         String unicodeInfo = null;
         try {
 
