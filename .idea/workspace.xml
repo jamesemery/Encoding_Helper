@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="65e2ade6-834f-4ce5-85c8-bde2fe8cd7aa" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/edu/carleton/emeryj/EncodingHelperTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EncodingHelper/edu/carleton/emeryj/EncodingHelperChar.class" afterPath="$PROJECT_DIR$/out/production/EncodingHelper/edu/carleton/emeryj/EncodingHelperChar.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/edu/carleton/emeryj/EncodingHelper.java" afterPath="$PROJECT_DIR$/src/edu/carleton/emeryj/EncodingHelper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/edu/carleton/emeryj/EncodingHelperChar.java" afterPath="$PROJECT_DIR$/src/edu/carleton/emeryj/EncodingHelperChar.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/edu/carleton/emeryj/EncodingHelperCharTest.java" afterPath="$PROJECT_DIR$/src/edu/carleton/emeryj/EncodingHelperCharTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="EncodingHelper.iws" />
@@ -576,7 +572,7 @@
       <workItem from="1428175993584" duration="7888000" />
       <workItem from="1428282292793" duration="366000" />
       <workItem from="1428282715478" duration="366000" />
-      <workItem from="1428283165199" duration="58516000" />
+      <workItem from="1428283165199" duration="58597000" />
     </task>
     <task id="LOCAL-00001" summary="Testing that I haven't broken things&#10;">
       <created>1428283300779</created>
@@ -632,11 +628,17 @@
       <option name="project" value="LOCAL" />
       <updated>1428865309885</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Finished functionality to EncodingHelper Class as well as adding funcitonality to EncodingHelperChar to produce an array of EncodingHelperChar objects from a given encoded byte array">
+      <created>1428890360933</created>
+      <option name="number" value="00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1428890360933</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="71161000" />
+    <option name="totallyTimeSpent" value="71242000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="20" y="43" width="1400" height="790" extended-state="0" />
@@ -661,7 +663,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3994452" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3994452" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -714,7 +716,8 @@
     <MESSAGE value="Added functionality to yet more of EncodingHelperChar classes as well as fixing the filepath issue with finding the Unicode database." />
     <MESSAGE value="Completed adding full functionality to EncodingHelperChar signature methods so they function by maniuplating bytes, as well as adding several new functionality tests." />
     <MESSAGE value="Added EncodingHelper class which handles command line input from the user." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added EncodingHelper class which handles command line input from the user." />
+    <MESSAGE value="Finished functionality to EncodingHelper Class as well as adding funcitonality to EncodingHelperChar to produce an array of EncodingHelperChar objects from a given encoded byte array" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished functionality to EncodingHelper Class as well as adding funcitonality to EncodingHelperChar to produce an array of EncodingHelperChar objects from a given encoded byte array" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
