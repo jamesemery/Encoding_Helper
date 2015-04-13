@@ -172,4 +172,49 @@ public class EncodingHelperCharTest {
     }
 
 
+    @Test
+    public void testReadBytesSingle() throws Exception {
+        String testString = "é";
+        byte[] testInput = testString.getBytes("UTF-8");
+        EncodingHelperChar[] actual = EncodingHelperChar.readBytes(testInput);
+
+        EncodingHelperChar[] expected = new EncodingHelperChar[1];
+        expected[0] = new EncodingHelperChar('é');
+        assertArrayEquals("readBytes() did not return the expected value for " +
+                "entre" +
+                " input test", convert(expected), convert(actual));
+    }
+
+    @Test
+    public void testReadBytesShort() throws Exception {
+        String testString = "être";
+        byte[] testInput = new byte[]{(byte)0xC3,(byte)0xAA,0x74,0x72,0x65};
+        EncodingHelperChar[] actual = EncodingHelperChar.readBytes(testInput);
+        int[] expected = {0xea,0x74,0x72,0x65};
+        assertArrayEquals("readBytes() did not return the expected value for " +
+                "entre input test", expected, convert(actual));
+    }
+
+    @Test
+    public void testReadBytesLarge() throws Exception {
+        byte[] testInput = {(byte)0xf0,(byte)0xa0,(byte)0x80,(byte)0x96,
+                (byte)0x41};
+        EncodingHelperChar[] actual = EncodingHelperChar.readBytes(testInput);
+        int[] expected = {0x20016,0x41};
+        assertArrayEquals("readBytes() did not return the expected value for " +
+                "big input test", expected, convert(actual));
+    }
+
+
+
+    //Tiny helper function that converts arrays of EncodingHelperChar to int
+    // arrays corresponding to their codepoint
+    private int[] convert(EncodingHelperChar[] chars) {
+        int[] output = new int[chars.length];
+        for (int i = 0; i < chars.length; i++){
+            output[i] = chars[i].getCodePoint();
+        }
+        return output;
+    }
+
 }

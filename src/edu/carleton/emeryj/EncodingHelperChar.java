@@ -9,16 +9,24 @@ package edu.carleton.emeryj;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 
 public class EncodingHelperChar {
     private int codePoint;
 
-    public EncodingHelperChar(int codePoint) {
+    public EncodingHelperChar(int codePoint) throws IllegalArgumentException{
         this.codePoint = codePoint;
+        if (codePoint>0x10FFFF){
+            throw new IllegalArgumentException("The codepoint " +
+                    toCodePointString() + " is not valid, Unicode only " +
+                    "supports codepoints up to U+10FFFF");
+        }
     }
     
-    public EncodingHelperChar(byte[] utf8Bytes) throws Exception {
+    public EncodingHelperChar(byte[] utf8Bytes) throws
+            IllegalArgumentException {
         if (utf8Bytes.length == 1) {
             codePoint = (int)utf8Bytes[0];
         } else {
@@ -51,7 +59,7 @@ public class EncodingHelperChar {
                     "supports codepoints up to U+10FFFF");
         }
     }
-    
+
     public EncodingHelperChar(char ch) {
         codePoint = (int) ch; //Note: this only works for codepoints under
         // U+FFFF, after that there will be no guarintees about how it is
@@ -179,7 +187,7 @@ public class EncodingHelperChar {
                     // control character.
                     if (unicodeInfo.equals("<control>")) {
                         String controlName = curLine.substring(curLine
-                                .indexOf(";N;")+3);
+                                .indexOf(";N;") + 3);
                         controlName = controlName.substring(0,controlName
                                 .indexOf(";"));
                         unicodeInfo = unicodeInfo + " " + controlName;
@@ -196,4 +204,94 @@ public class EncodingHelperChar {
         }
         return unicodeInfo;
     }
+
+
+    /**
+     * Takes a byte array representing UTF-8 encodings and converts it to an array
+     * of EncodingHelperChar objects that represent the character that the UTF-8
+     * represented.
+     *
+     * @return an array of EncodingHelperChar objects
+     */
+    public static EncodingHelperChar[] readBytes(byte[] bytes) throws IllegalArgumentException{
+
+        ArrayList<EncodingHelperChar> pointList = new ArrayList<EncodingHelperChar>();
+        try {
+            int pointer = 0;
+            while (pointer < bytes.length) {
+
+                //if it's a single byte character
+                if ((byte)(bytes[pointer] & 0x80) == (byte)0x00) {
+                    byte[] subarray = Arrays.copyOfRange(bytes,pointer,
+                            pointer+1);
+                    pointList.add(new EncodingHelperChar(subarray));
+                    pointer++;
+
+
+                //if it's a two byte character
+                } else if((byte)(bytes[pointer] & 0xe0) == (byte)0xc0){
+                    if ((byte)(bytes[pointer+1] & 0xc0) == (byte)0x80){
+                        byte[] subarray = Arrays.copyOfRange(bytes,pointer,
+                                pointer+2);
+                        pointList.add(new EncodingHelperChar(subarray));
+                        pointer+=2;
+                    }else {
+                        throw new IllegalArgumentException("The byte sequence" +
+                                " is invalid arround byte number " +
+                                pointer);
+                    }
+
+
+                //if its a three byte character
+                } else if((byte)(bytes[pointer] & 0xf0) == (byte)0xe0) {
+                    if (((byte)(bytes[pointer + 1] & 0xc0) == (byte)0x80) & (
+                            (byte)(bytes[pointer + 2] & 0xc0) == (byte)0x80)) {
+                        byte[] subarray = Arrays.copyOfRange(bytes, pointer,
+                                pointer + 3);
+                        pointList.add(new EncodingHelperChar(subarray));
+                        pointer += 3;
+                    } else {
+                        throw new IllegalArgumentException("The byte sequence" +
+                                " is invalid arround byte number " +
+                                pointer);
+                    }
+
+                //if its a four byte character
+                }   else if((byte)(bytes[pointer] & 0xf8) == (byte)0xf0) {
+                    if (((byte)(bytes[pointer + 1] & 0xc0) == (byte)0x80) & (
+                            (byte)(bytes[pointer + 2] & 0xc0) == (byte)0x80) & (
+                            (byte)(bytes[pointer + 3] & 0xc0) == (byte)0x80)) {
+                        byte[] subarray = Arrays.copyOfRange(bytes, pointer,
+                                pointer + 4);
+                        pointList.add(new EncodingHelperChar(subarray));
+
+                        pointer += 4;
+                    } else {
+                        throw new IllegalArgumentException("The byte sequence" +
+                                " is invalid arround byte number " +
+                               pointer );
+                    }
+
+
+                //If it doesn't match any starting bit pattern
+                } else {
+                    throw new IllegalArgumentException("The UTF8 byte " +
+                            "sequence is invalid arround byte number " +
+                            pointer);
+                }
+            }
+        }catch (NullPointerException e) {
+            throw new IllegalArgumentException("The last byte was improperly " +
+                    "formatted");
+        } catch (IllegalArgumentException e) {
+            throw e;
+        }
+
+        EncodingHelperChar[] output = new EncodingHelperChar[pointList.size()];
+        output = pointList.toArray(output);
+
+        return output;
+    }
+
+
 }
